@@ -1,0 +1,14 @@
+{
+  "name": "florm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/ava/cli.js test/*.js test/validators/*.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "ava": "^0.7.0"
+  }
+}
