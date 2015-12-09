@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      /*
+        brown: #3B2913
+        white: #F1ECE9
+        yellow: #F7D072
+        pink: #F0627A
+        black: #00000
+
+        http://www.pictaculous.com/
+      */
+
+      * {
+        -webkit-box-sizing: border-box;
+           -moz-box-sizing: border-box;
+                box-sizing: border-box;
+      }
+
+      body {
+        background-color: #F1ECE9;
+        color: #00000;
+        font-family: Arial;
+        font-size: 13px;
+      }
+
+      label {
+        display: block;
+      }
+
+      .error-field {
+        border: 1px solid #F0627A;
+      }
+
+      .error-message,
+      .error-label {
+        color: #F0627A;
+      }
+
+      .field {
+        display: block;
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="field">
+      <label for="username">username</label>
+      <input type="text" id="username" />
+    </div>
+
+    <div class="field">
+      <label for="password">password</label>
+      <input type="password" id="password" />
+    </div>
+
+    <div class="field">
+      <label for="email">email</label>
+      <input type="email" id="email" />
+    </div>
+
+    <button type="button" name="button" id="btn">Send</button>
+
+    <script src="main.bundle.js" charset="utf-8"></script>
+  </body>
+</html>
