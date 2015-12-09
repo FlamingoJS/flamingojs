@@ -10,7 +10,10 @@
   "license": "ISC",
   "devDependencies": {
     "ava": "^0.7.0",
-    "babel-cli": "^6.3.13",
+    "babel-cli": "^6.3.15",
     "jsdom": "^7.1.1"
+  },
+  "dependencies": {
+    "merge": "^1.2.0"
   }
 }
