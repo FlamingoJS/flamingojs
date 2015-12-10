@@ -1,18 +1,18 @@
-import 'babel-core/register';
-
-import test from 'ava';
+import { expect } from 'chai';
 import isEqual from '../../lib/validators/isEqual';
 
-test('should return true', t => {
-  t.is(isEqual('1', '1'), true);
-  t.is(isEqual('1', 1), true);
-  t.is(isEqual(20, 20), true);
-  t.is(isEqual('Hello', 'Hello'), true);
-});
+describe('isEqual', () => {
+  it('should return true', () => {
+    expect(isEqual('1', '1')).to.be.true;
+    expect(isEqual('1', 1)).to.be.true;
+    expect(isEqual(20, 20)).to.be.true;
+    expect(isEqual('Hello', 'Hello')).to.be.true;
+  });
 
-test('should return false', t => {
-  t.is(isEqual('Hello', 'World'), false);
-  t.is(isEqual('Hello', ''), false);
-  t.is(isEqual('1', '2'), false);
-  t.is(isEqual('3', 2), false);
+  it('should return false', () => {
+    expect(isEqual('Hello', 'World')).to.be.false;
+    expect(isEqual('Hello', '')).to.be.false;
+    expect(isEqual('1', '2')).to.be.false;
+    expect(isEqual('3', 2)).to.be.false;
+  });
 });

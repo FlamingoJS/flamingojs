@@ -1,17 +1,17 @@
-import 'babel-core/register';
-
-import test from 'ava';
+import { expect } from 'chai';
 import isRequired from '../../lib/validators/isRequired';
 
-test('should return false', t => {
-  t.is(isRequired('Hello'), true);
-  t.is(isRequired(1), true);
-  t.is(isRequired(2.50), true);
-});
+describe('isRequired', () => {
+  it('should return true', () => {
+    expect(isRequired('Hello')).to.be.true;
+    expect(isRequired(1)).to.be.true;
+    expect(isRequired(2.50)).to.be.true;
+  });
 
-test('should return true', t => {
-  t.is(isRequired(''), false);
-  t.is(isRequired(), false);
-  t.is(isRequired(null), false);
-  t.is(isRequired(undefined), false);
+  it('should return false', () => {
+    expect(isRequired('')).to.be.false;
+    expect(isRequired()).to.be.false;
+    expect(isRequired(null)).to.be.false;
+    expect(isRequired(undefined)).to.be.false;
+  });
 });

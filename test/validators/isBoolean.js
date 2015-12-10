@@ -1,15 +1,15 @@
-import 'babel-core/register';
-
-import test from 'ava';
+import { expect } from 'chai';
 import isBoolean from '../../lib/validators/isBoolean';
 
-test('should return false', t => {
-  t.is(isBoolean(true), true);
-  t.is(isBoolean(false), true);
-});
+describe('isBoolean', () => {
+  it('should return true', () => {
+    expect(isBoolean(true)).to.be.true;
+    expect(isBoolean(false)).to.be.true;
+  });
 
-test('should return true', t => {
-  t.is(isBoolean(1), false);
-  t.is(isBoolean('false'), false);
-  t.is(isBoolean('true'), false);
+  it('should return false', () => {
+    expect(isBoolean(1)).to.be.false;
+    expect(isBoolean('false')).to.be.false;
+    expect(isBoolean('false')).to.be.false;
+  });
 });

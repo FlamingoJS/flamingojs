@@ -1,21 +1,21 @@
-import 'babel-core/register';
-
-import test from 'ava';
+import { expect } from 'chai';
 import isCPF from '../../lib/validators/isCPF';
 
-test('should return true', t => {
-  t.is(isCPF('265.827.252-97'), true);
-  t.is(isCPF('242.193.353-66'), true);
-  t.is(isCPF('776.857.639-07'), true);
-  t.is(isCPF('22017437620'), true);
-  t.is(isCPF('77685763907'), true);
-  t.is(isCPF('41474486827'), true);
-});
+describe('isCPF', () => {
+  it('should return true', () => {
+    expect(isCPF('265.827.252-97')).to.be.true;
+    expect(isCPF('242.193.353-66')).to.be.true;
+    expect(isCPF('776.857.639-07')).to.be.true;
+    expect(isCPF('22017437620')).to.be.true;
+    expect(isCPF('77685763907')).to.be.true;
+    expect(isCPF('41474486827')).to.be.true;
+  });
 
-test('should return false', t => {
-  t.is(isCPF('123.456.789-01'), false);
-  t.is(isCPF('978.324.555-99'), false);
-  t.is(isCPF('45678968901'), false);
-  t.is(isCPF('11112222333'), false);
-  t.is(isCPF('00000000000'), false);
+  it('should return false', () => {
+    expect(isCPF('123.456.789-01')).to.be.false;
+    expect(isCPF('978.324.555-99')).to.be.false;
+    expect(isCPF('45678968901')).to.be.false;
+    expect(isCPF('11112222333')).to.be.false;
+    expect(isCPF('00000000000')).to.be.false;
+  });
 });

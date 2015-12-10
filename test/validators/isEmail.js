@@ -1,17 +1,17 @@
-import 'babel-core/register';
-
-import test from 'ava';
+import { expect } from 'chai';
 import isEmail from '../../lib/validators/isEmail';
 
-test('should return true', t => {
-  t.is(isEmail('brunoofq@gmail.com'), true);
-  t.is(isEmail('myname@myprovider.com.br'), true);
-  t.is(isEmail('name@prv.net'), true);
-});
+describe('isEmail', () => {
+  it('should return true', () => {
+    expect(isEmail('brunoofq@gmail.com')).to.be.true;
+    expect(isEmail('myname@myprovider.com.br')).to.be.true;
+    expect(isEmail('name@prv.net')).to.be.true;
+  });
 
-test('should return false', t => {
-  t.is(isEmail('name@provider,com'), false);
-  t.is(isEmail('nameprovider.com'), false);
-  t.is(isEmail('name@provider'), false);
-  t.is(isEmail('name@provider.com.br.test'), false);
+  it('should return false', () => {
+    expect(isEmail('name@provider,com')).to.be.false;
+    expect(isEmail('nameprovider.com')).to.be.false;
+    expect(isEmail('name@provider')).to.be.false;
+    expect(isEmail('name@provider.com.br.test')).to.be.false;
+  });
 });

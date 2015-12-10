@@ -1,17 +1,17 @@
-import 'babel-core/register';
-
-import test from 'ava';
+import { expect } from 'chai';
 import isDate from '../../lib/validators/isDate';
 
-test('should return true', t => {
-  t.is(isDate('2015-12-24'), true);
-  t.is(isDate('1990-02-05'), true);
-  t.is(isDate('2025-07-30'), true);
-});
+describe('isDate', () => {
+  it('should return true', () => {
+    expect(isDate('2015-12-24')).to.be.true;
+    expect(isDate('1990-02-05')).to.be.true;
+    expect(isDate('2025-07-30')).to.be.true;
+  });
 
-test('should return false', t => {
-  t.is(isDate('2025-017-30'), false);
-  t.is(isDate('2015-05-80'), false);
-  t.is(isDate('2025'), false);
-  t.is(isDate('abcd-ef-gh'), false);
+  it('should return false', () => {
+    expect(isDate('2025-017-30')).to.be.false;
+    expect(isDate('2015-05-80')).to.be.false;
+    expect(isDate('2025')).to.be.false;
+    expect(isDate('abcd-ef-gh')).to.be.false;
+  });
 });

@@ -1,53 +1,43 @@
-import 'babel-core/register';
+require('mocha-jsdom')()
 
-import test from 'ava';
-import jsdom from 'jsdom';
+import { expect } from 'chai';
 import isRequired from '../lib/validators/isRequired';
 import FlamingoJS from '../lib/index';
 
-let document;
-let flamingo;
+describe('FlamingoJS', () => {
+  let flamingo;
 
-test.before(t => {
-  jsdom.env({
-    globalize: true,
-    console: true,
-    useEach: false,
-    skipWindowCheck: false,
-    html: "<!doctype html><html><head><meta charset='utf-8'></head>" +
-      '<body></body></html>',
-    done: (err, window) => {
-      document = window.document;
-
-      flamingo = new FlamingoJS({
-        'document': document
-      });
-    }
-  });
-});
-
-test('should add the class .error-field', t => {
-  const fields = [
-    {
-      'element': '#email',
-      'rules': [
-        {
-          'validator': isRequired
-        }
-      ]
-    }
-  ];
-
-  let input = document.createElement('input');
-  input.setAttribute('id', 'email');
-  input.setAttribute('type', 'email');
-  input.setAttribute('value', '');
-  document.body.appendChild(input);
-
-  flamingo.validate(fields)
-    .then((response) => {
-      t.true(document.querySelector('#email').classList.contains('error-field'));
-      t.same(document.querySelector('.error-message').innerHTML, 'This field is required.');
-      document.body.removeChild(input);
+  beforeEach(() => {
+    flamingo = new FlamingoJS({
+      'document': document
     });
+  });
+
+  it('should add the class .error-field', (done) => {
+    const fields = [
+      {
+        'element': '#email',
+        'rules': [
+          {
+            'validator': isRequired
+          }
+        ]
+      }
+    ];
+
+    let input = document.createElement('input');
+    input.setAttribute('id', 'email');
+    input.setAttribute('type', 'email');
+    input.setAttribute('value', '');
+    document.body.appendChild(input);
+
+    flamingo.validate(fields)
+      .then((response) => {
+        expect(document.querySelector('#email').classList.contains('err1or-field')).to.be.true;
+        expect(document.querySelector('.error-message').innerHTML).to.equal('This field is required.');
+
+        document.body.removeChild(input);
+        done();
+      }, done);
+  });
 });

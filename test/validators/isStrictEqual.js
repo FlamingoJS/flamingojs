@@ -1,16 +1,16 @@
-import 'babel-core/register';
-
-import test from 'ava';
+import { expect } from 'chai';
 import isStrictEqual from '../../lib/validators/isStrictEqual';
 
-test('should return true', t => {
-  t.is(isStrictEqual('1', '1'), true);
-  t.is(isStrictEqual(1, 1), true);
-  t.is(isStrictEqual('Hello', 'Hello'), true);
-});
+describe('isBoolean', () => {
+  it('should return true', () => {
+    expect(isStrictEqual('1', '1')).to.be.true;
+    expect(isStrictEqual(1, 1)).to.be.true;
+    expect(isStrictEqual('Hello', 'Hello')).to.be.true;
+  });
 
-test('should return false', t => {
-  t.is(isStrictEqual('Hello', 'World'), false);
-  t.is(isStrictEqual('1', 1), false);
-  t.is(isStrictEqual('2.51', 2.51), false);
+  it('should return false', () => {
+    expect(isStrictEqual('Hello', 'World')).to.be.false;
+    expect(isStrictEqual('1', 1)).to.be.false;
+    expect(isStrictEqual('2.51', 2.51)).to.be.false;
+  });
 });

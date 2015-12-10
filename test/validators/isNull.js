@@ -1,12 +1,12 @@
-import 'babel-core/register';
-
-import test from 'ava';
+import { expect } from 'chai';
 import isNull from '../../lib/validators/isNull';
 
-test('should return true', t => {
-  t.is(isNull(null), true);
-});
+describe('isNull', () => {
+  it('should return true', () => {
+    expect(isNull(null)).to.be.true;
+  });
 
-test('should return false', t => {
-  t.is(isNull('Hello'), false);
+  it('should return false', () => {
+    expect(isNull('Hello')).to.be.false;
+  });
 });
