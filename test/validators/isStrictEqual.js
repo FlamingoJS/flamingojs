@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import isStrictEqual from '../../lib/validators/isStrictEqual';
 
-describe('isBoolean', () => {
+describe('isStrictEqual', () => {
   it('should return true', () => {
     expect(isStrictEqual('1', '1')).to.be.true;
     expect(isStrictEqual(1, 1)).to.be.true;
