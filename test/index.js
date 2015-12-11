@@ -26,7 +26,7 @@ describe('FlamingoJS', () => {
       }
     ];
 
-    let label = dom.create('label', {
+    const label = dom.create('label', {
       'innerHTML': 'Email',
       'attributes': {
         'for': 'email'
@@ -34,7 +34,7 @@ describe('FlamingoJS', () => {
     });
     dom.appendChild(document.body, label);
 
-    let input = dom.create('input', {
+    const input = dom.create('input', {
       'value': '',
       'attributes': {
         'id': 'email',
@@ -44,7 +44,7 @@ describe('FlamingoJS', () => {
     dom.appendChild(document.body, input);
 
     flamingo.validate(fields)
-      .then((response) => {
+      .then(() => {
         expect(dom.getElement('.error-message').innerHTML).to.equal('This field is required.');
 
         dom.remove(input);

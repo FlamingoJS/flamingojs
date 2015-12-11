@@ -66,7 +66,7 @@ describe('dom', () => {
 
   describe('remove()', () => {
     it('should remove an element when pass a node', () => {
-      let newElement = dom.create('div', {
+      const newElement = dom.create('div', {
         'innerHTML': 'My element',
         'attributes': {
           'id': 'my-element'
@@ -80,7 +80,7 @@ describe('dom', () => {
     });
 
     it('should remove an element when pass an element selector', () => {
-      let newElement = dom.create('div', {
+      const newElement = dom.create('div', {
         'innerHTML': 'My element',
         'attributes': {
           'id': 'my-element'
@@ -168,7 +168,6 @@ describe('dom', () => {
       });
       dom.appendChild(document.body, newElement);
 
-      const element = dom.getElement('#my-element');
       expect(dom.hasClass('#my-element', 'my-class2')).to.be.false;
     });
   });
