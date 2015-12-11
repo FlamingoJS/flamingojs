@@ -47,6 +47,8 @@ document.querySelector('#btn').addEventListener('click', (e) => {
   flamingo.validate(fields)
     .then((response) => {
       console.log(response);
+    }, (errors) => {
+      console.log(errors);
     });
 });
 
