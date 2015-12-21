@@ -1,14 +1,29 @@
 {
   "name": "FlamingoJS",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "build": "gulp browserify",
-    "test": "eslint lib test && mocha --compilers js:babel-core/register test/utils/*.js test/validators/*.js test/*.js --reporter nyan"
+  "version": "0.0.1",
+  "description": "A modular JavaScript form validation library",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FlamingoJS/flamingojs.git"
   },
-  "author": "",
-  "license": "ISC",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "eslint lib test && mocha --compilers js:babel-core/register test/utils/*.js test/*.js"
+  },
+  "keywords": [
+    "form",
+    "validation"
+  ],
+  "author": {
+    "name": "Bruno Queiros",
+    "email": "brunoofq@gmail.com",
+    "url": "https://github.com/brunoqueiros"
+  },
+  "bugs": {
+    "url": "https://github.com/FlamingoJS/flamingojs/issues"
+  },
+  "homepage": "https://github.com/FlamingoJS/flamingojs#readme",
   "devDependencies": {
     "babel-cli": "^6.3.15",
     "babel-core": "^6.3.15",
